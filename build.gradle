@@ -3,12 +3,26 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+//sourceCompatibility = 1.5
 
 repositories {
     mavenCentral()
 }
-
+/*
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}*/
+
+task client(type: JavaExec) {
+   // jvmArgs= ["-XDignore.symbol.file"]
+    main = "me.nbeaussart.ChatClient"
+    classpath = sourceSets.main.runtimeClasspath
+}
+task serv(type: JavaExec) {
+    main = "me.nbeaussart.ChatServer"
+    classpath = sourceSets.main.runtimeClasspath
+}
+task encryTestRun(type: JavaExec) {
+    main = "me.nbeaussart.util.AESEncrypter"
+    classpath = sourceSets.main.runtimeClasspath
 }

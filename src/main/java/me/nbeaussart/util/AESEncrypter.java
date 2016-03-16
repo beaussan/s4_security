@@ -95,7 +95,7 @@ public class AESEncrypter {
         System.out.println(encrypter1.decrypt(encrypted1)) ;
         System.out.println(encrypter2.decrypt(encrypted2)) ;
 
-        System.out.println("Attempt to decrypt the each others msg.. will sucess since I store the SecretKey" );
+        System.out.println("Attempt to decrypt the each others msg.. will success since I store the SecretKey" );
 
         System.out.println(encrypter1.decrypt(encrypted2)) ;
         System.out.println(encrypter2.decrypt(encrypted1)) ;

@@ -32,8 +32,6 @@ public class AESEncrypter {
         KeySpec spec = new PBEKeySpec(passPhrase.toCharArray(), SALT, ITERATION_COUNT, KEY_LENGTH);
         SecretKey tmp = factory.generateSecret(spec);
 
-        // I Think the problem is here???
-
         secret = new SecretKeySpec(tmp.getEncoded(), "AES");
 
         ecipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -97,7 +95,7 @@ public class AESEncrypter {
         System.out.println(encrypter1.decrypt(encrypted1)) ;
         System.out.println(encrypter2.decrypt(encrypted2)) ;
 
-        System.out.println("Attempt to decrypt the each others msg.. will fail" );
+        System.out.println("Attempt to decrypt the each others msg.. will sucess since I store the SecretKey" );
 
         System.out.println(encrypter1.decrypt(encrypted2)) ;
         System.out.println(encrypter2.decrypt(encrypted1)) ;

@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.lang.reflect.Field;
 import java.net.Socket;
 import java.util.*;
 
@@ -223,6 +222,7 @@ public class ChatClient {
      */
     public static void main(String[] args) throws Exception {
         /*
+        //
         try {
             Field field = Class.forName("javax.crypto.JceSecurity").getDeclaredField("isRestricted");
             field.setAccessible(true);

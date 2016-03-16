@@ -163,6 +163,11 @@ public class ChatServer {
             }
         }
 
+        /**
+         * Handle the command send as COMMAND x
+         * Handeled commands : LIST
+         * @param command the called command
+         */
         private void handleCommand(String command){
             if (command.toUpperCase().equals("LIST")){
                 out.println("COMMAND " + names.size());
@@ -172,10 +177,21 @@ public class ChatServer {
             }
         }
 
+        /**
+         * Write message to every user on the chat with the default format
+         * @param user user who speak
+         * @param message message writen
+         */
         private void writeMessage(String user, String message){
             writeMessage(user, message, "<%s>: %s\n");
         }
 
+        /**
+         * Write message to every user on the chat
+         * @param user user who speak
+         * @param message message writen
+         * @param format the format of the message (C style)
+         */
         private synchronized void writeMessage(String user, String message, String format){
             String str = "MESSAGE " + format;
             System.out.format(str,user,message);

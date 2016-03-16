@@ -61,6 +61,9 @@ public class ChatClient {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 String user = list.getSelectedValue();
+                if (user == null){
+                    return;
+                }
                 String passwd = getPassword(user);
                 if (passwd != null && !passwd.isEmpty()) {
                     try {
@@ -187,7 +190,7 @@ public class ChatClient {
                 String user = data[0].replaceAll("<(.*)>.*", "$1");
 
                 if (decrypts.containsKey(user)){
-                    System.out.println("Found sombody that I used to know " + user + " with " + decrypts.get(user).getPassPhrase());
+                    System.out.println("I know " + user + " with the passwd : " + decrypts.get(user).getPassPhrase());
                     try {
                         mess = data[0] + ':' + decrypts.get(user).decrypt(data[1]);
                     } catch (Exception e) {
@@ -208,7 +211,7 @@ public class ChatClient {
         for (int i =0; i < nmbUsers; i++){
             lsUsers[i]=in.readLine().substring(8);
         }
-        System.out.println(Arrays.toString(lsUsers));
+        //System.out.println(Arrays.toString(lsUsers));
         modelList.clear();
         for (int i =0;i <nmbUsers; i++){
             modelList.addElement(lsUsers[i]);

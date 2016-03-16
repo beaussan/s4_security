@@ -203,7 +203,10 @@ public class ChatClient {
         }
     }
 
-
+    /**
+     * Ask the server about the user who are logged
+     * @throws IOException socket exception
+     */
     private void refreshList() throws IOException {
         out.println("COMMAND LIST");
         int nmbUsers = Integer.parseInt(in.readLine().substring(8));

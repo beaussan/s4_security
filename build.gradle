@@ -14,7 +14,6 @@ dependencies {
 }*/
 
 task client(type: JavaExec) {
-   // jvmArgs= ["-XDignore.symbol.file"]
     main = "me.nbeaussart.ChatClient"
     classpath = sourceSets.main.runtimeClasspath
 }
